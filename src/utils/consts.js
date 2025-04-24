@@ -1,4 +1,4 @@
-export const SLIDERHEADER = [
+export const SLIDER = [
     {
         AltSlider: 'barber - Agenda Smart',
         Img: './hero/barber.jpg'
