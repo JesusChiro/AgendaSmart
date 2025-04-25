@@ -3,9 +3,9 @@
 @theme {
     --color-navbar: #10058C;
     --color-filter: #0247E2;
-    --font-fallback: Poppins, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+    --font-fallback: Raleway, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
         'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-    --font-secondary: Raleway, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+    --font-secondary: Raleway, 'Segoe UI',
 }
 
 @layer base {
@@ -68,7 +68,7 @@
 }
 
 html {
-    font-family: 'Poppins', var(--font-fallback);
+    font-family: 'Raleway', var(--font-fallback);
     /* text-transform: uppercase; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

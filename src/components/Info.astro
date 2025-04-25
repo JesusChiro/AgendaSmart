@@ -1,0 +1,29 @@
+---
+import { BOXES } from "@/utils/consts.js"
+---
+
+<section class="flex flex-col items-center justify-center mt-24 ">
+  <aside>
+    <div>
+      <h2>Convierte cada cita en una</h2>
+      <p>Oportunidad de crecimiento</p>
+    </div>
+    <div class="flex flex-col gap-3">
+      {
+        BOXES.map(({ title, icon, description }) => (
+          <div class="flex flex-row items-center border-2 rounded-2xl p-4">
+            <div class="px-4">
+              <img src={icon} />
+            </div>
+            <div class="">
+              <h3 class="font-extrabold font-secondary">{title}</h3>
+              <p class="font-secondary">{description}</p>
+            </div>
+          </div>
+        ))
+      }
+
+    </div>
+  </aside>
+  <aside></aside>
+</section>
