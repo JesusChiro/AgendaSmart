@@ -3,9 +3,11 @@
 @theme {
     --color-navbar: #10058C;
     --color-filter: #0247E2;
+    --color-text: #1E1F44;
+    --color-burble: #F5F8FF;
     --font-fallback: Raleway, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
         'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-    --font-secondary: Raleway, 'Segoe UI',
+    --font-secondary: Poppins, 'Segoe UI',
 }
 
 @layer base {
