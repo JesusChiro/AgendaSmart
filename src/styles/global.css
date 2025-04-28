@@ -2,7 +2,9 @@
 
 @theme {
     --color-navbar: #10058C;
+    --color-footer: #01277C;
     --color-filter: #0247E2;
+    --color-text-section: #797988;
     --color-text: #1E1F44;
     --color-burble: #F5F8FF;
     --font-fallback: Raleway, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
@@ -55,7 +57,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: local(Arial);
+    src: local('Poppins');
     size-adjust: 112%;
     ascent-override: 74%;
     descent-override: normal;
@@ -64,13 +66,13 @@
 
 @font-face {
     font-family: 'Raleway';
-    src: url('/fonts/anisette-medium.woff2') format('woff2');
+    src: url('/fonts/raleway-regular-webfont.woff2') format('woff2');
     font-weight: 400;
     font-display: swap;
 }
 
 html {
-    font-family: 'Raleway', var(--font-fallback);
+    font-family: 'Poppins', var(--font-fallback);
     /* text-transform: uppercase; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
