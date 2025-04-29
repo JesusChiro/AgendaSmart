@@ -1,18 +1,80 @@
-<header
-  class="bg-navbar flex flex-raw justify-around items-center mx-auto h-[108px] gap-96 font-fallback"
->
-  <img src="/logotipo.svg" alt="Logo Agenda Smart" />
-  <nav class="">
-    <ul class="flex text-white flex-raw gap-10 items-center">
-      <li>
-        <a class="" href="#inicio">Inicio</a>
-      </li>
-      <li>
-        <a class="" href="#beneficios">Beneficios</a>
-      </li>
-      <li>
-        <a class="" href="#galeria">Galería</a>
-      </li>
+---
+export const MENUITEMS = [
+  { title: "Inicio", path: "/" },
+  { title: "Beneficios", path: "/beneficios" },
+  { title: "Galería", path: "/galeria" },
+]
+
+const currentPath = Astro.url.pathname
+---
+
+<header class="bg-navbar font-fallback">
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 lg:py-8"
+  >
+    <img src="/logotipo.svg" alt="Logo Agenda Smart" class="h-10 w-auto" />
+
+    <!-- Botón hamburguesa (solo en móvil) -->
+    <button
+      class="lg:hidden text-white"
+      aria-label="Abrir menú"
+      onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+    >
+      ☰
+    </button>
+
+    <!-- Navegación desktop -->
+    <nav class="hidden lg:block">
+      <ul class="flex gap-10 items-center text-white">
+        {
+          MENUITEMS.map(({ title, path }) => {
+            const isActive = currentPath === path
+            return (
+              <li>
+                <a
+                  href={path}
+                  class={`relative text-lg pb-2 transition-colors duration-300 ${
+                    isActive ? "text-white" : "text-gray-300 hover:text-white"
+                  }
+                    after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 
+                    after:h-[3px] after:bg-green-400 after:rounded-full
+                    after:transition-all after:duration-300
+                    ${isActive ? "after:w-6" : "after:w-0 hover:after:w-6"}`}
+                >
+                  {title}
+                </a>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Navegación móvil -->
+  <nav id="mobile-menu" class="lg:hidden hidden px-4 pb-4">
+    <ul class="flex flex-col gap-4 text-white">
+      {
+        MENUITEMS.map(({ title, path }) => {
+          const isActive = currentPath === path
+          return (
+            <li>
+              <a
+                href={path}
+                class={`relative text-base block pb-2 transition-colors duration-300 ${
+                  isActive ? "text-white" : "text-gray-300 hover:text-white"
+                }
+                  after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 
+                  after:h-[3px] after:bg-green-400 after:rounded-full
+                  after:transition-all after:duration-300
+                  ${isActive ? "after:w-6" : "after:w-0 hover:after:w-6"}`}
+              >
+                {title}
+              </a>
+            </li>
+          )
+        })
+      }
     </ul>
   </nav>
 </header>
