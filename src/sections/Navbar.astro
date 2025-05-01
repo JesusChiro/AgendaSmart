@@ -3,17 +3,18 @@ export const MENUITEMS = [
   { title: "Inicio", path: "/" },
   { title: "Beneficios", path: "/beneficios" },
   { title: "Galería", path: "/galeria" },
-]
+];
 
-const currentPath = Astro.url.pathname
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-navbar font-fallback">
+<header id="top" class="bg-navbar font-fallback">
   <div
     class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 lg:py-8"
   >
-    <img src="/logotipo.svg" alt="Logo Agenda Smart" class="h-10 w-auto" />
-
+    <a href="/">
+      <img src="/logotipo.svg" alt="Logo Agenda Smart" class="h-10 w-auto" />
+    </a>
     <!-- Botón hamburguesa (solo en móvil) -->
     <button
       class="lg:hidden text-white"
@@ -28,7 +29,7 @@ const currentPath = Astro.url.pathname
       <ul class="flex gap-10 items-center text-white">
         {
           MENUITEMS.map(({ title, path }) => {
-            const isActive = currentPath === path
+            const isActive = currentPath === path;
             return (
               <li>
                 <a
@@ -44,7 +45,7 @@ const currentPath = Astro.url.pathname
                   {title}
                 </a>
               </li>
-            )
+            );
           })
         }
       </ul>
@@ -56,7 +57,7 @@ const currentPath = Astro.url.pathname
     <ul class="flex flex-col gap-4 text-white">
       {
         MENUITEMS.map(({ title, path }) => {
-          const isActive = currentPath === path
+          const isActive = currentPath === path;
           return (
             <li>
               <a
@@ -72,7 +73,7 @@ const currentPath = Astro.url.pathname
                 {title}
               </a>
             </li>
-          )
+          );
         })
       }
     </ul>
