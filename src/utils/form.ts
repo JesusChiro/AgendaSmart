@@ -48,7 +48,7 @@ export const FORM_FIELDS: FormField[] = [
     divClass:
       "w-full bg-gray-50 border border-gray-300 text-gray-800 placeholder-gray-400 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400",
     inputClass:
-      "w-full bg-gray-50 text-gray-800 placeholder-gray-400 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-400",
+      "w-full bg-gray-50 text-gray-800 placeholder-gray-400 text-sm rounded-lg p-2.5 lg:p-1.5 focus:outline-none focus:ring-blue-400",
   },
   {
     id: "email",
@@ -63,7 +63,7 @@ export const FORM_FIELDS: FormField[] = [
     divClass:
       "w-full bg-gray-50 border border-gray-300 text-gray-800 placeholder-gray-400 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400",
     inputClass:
-      "w-full bg-gray-50 text-gray-800 placeholder-gray-400 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-400",
+      "w-full bg-gray-50 text-gray-800 placeholder-gray-400 text-sm rounded-lg p-2.5 lg:p-1.5 focus:outline-none focus:ring-blue-400",
   },
   {
     id: "phone",
@@ -78,6 +78,6 @@ export const FORM_FIELDS: FormField[] = [
     divClass:
       "w-full bg-gray-50 border border-gray-300 text-gray-800 placeholder-gray-400 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400",
     inputClass:
-      "w-full bg-gray-50 text-gray-800 placeholder-gray-400 text-sm rounded-lg p-2.5 focus:outline-none focus:ring-blue-400",
+      "w-full bg-gray-50 text-gray-800 placeholder-gray-400 text-sm rounded-lg p-2.5 lg:p-1.5 focus:outline-none focus:ring-blue-400",
   },
 ]
