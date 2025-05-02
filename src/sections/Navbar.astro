@@ -1,14 +1,14 @@
 ---
 export const MENUITEMS = [
   { title: "Inicio", path: "/" },
-  { title: "Beneficios", path: "/beneficios" },
-  { title: "Galería", path: "/galeria" },
+  { title: "Beneficios", path: "#beneficios" },
+  { title: "Galería", path: "#galeria" },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header id="top" class="fixed top-0 left-0 w-full z-50 bg-navbar font-fallback">
+<header id="top" class="top-0 left-0 w-full z-50 bg-navbar font-fallback">
   <div
     class="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 lg:py-8"
   >
