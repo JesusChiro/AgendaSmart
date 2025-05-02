@@ -40,6 +40,32 @@
         scrollbar-color: var(--color-theme-french-mauve) var(--color-theme-raisin-black);
         scrollbar-width: thin;
     }
+
+    /* Animaciones para el menú hamburguesa */
+    @keyframes hamburger-pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Clases para el menú móvil */
+    .mobile-menu-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.3s ease-out;
+    }
+
+    .mobile-menu-hidden {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-out;
+    }
 }
 
 @layer utilities {
