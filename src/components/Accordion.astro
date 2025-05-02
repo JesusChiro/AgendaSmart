@@ -1,61 +1,70 @@
 ---
 const images = [
-  {
-    src: "/interfaces/calendar.png",
-    alt: "Ventana 1",
-    top: "-top-5",
-    left: "left-0",
-    z: "z-10",
-    delay: 0,
-  },
-  {
-    src: "/interfaces/list.png",
-    alt: "Ventana 2",
-    top: "top-6",
-    left: "left-10",
-    z: "z-20",
-    delay: 150,
-  },
-  {
-    src: "/interfaces/schedule.png",
-    alt: "Ventana 3",
-    top: "top-16",
-    left: "left-20",
-    z: "z-30",
-    delay: 300,
-  },
+  { src: "/interfaces/calendar.png", alt: "Board Calendar Agenda Smart" },
+  { src: "/interfaces/list.png", alt: "Board Lista Agenda Smart" },
+  { src: "/interfaces/schedule.png", alt: "Board Schedule Agenda Smart" },
 ];
+
+// Posiciones iniciales
+let positions = [  
+  { x: 0,   y: -20, scale: 0.95, z: 10, delay: 0   },  
+  { x: 40,  y: 0,   scale: 1,    z: 20, delay: 150 },  
+  { x: 80,  y: 20,  scale: 1.05, z: 30, delay: 300 },  
+];
+
 ---
 
-<section id="galeria"
-  class="flex flex-col w-full mt-14 px-6 py-12 h-full lg:px-40 bg-burble gap-10 lg:justify-center lg:items-start"
+<div
+  id="diagonal-wrapper"
+  class="relative flex flex-col gap-6 lg:w-1/2 lg:py-48"
 >
-  <!-- Texto -->
-  <aside class="lg:w-1/2">
-    <p class="flex items-center text-base text-text-section lg:text-xl">
-      Un vistazo nuestra web
-      <span class="flex-1 h-px bg-gray-300 ml-4"></span>
-    </p>
-    <p class="text-lg font-black font-fallback lg:text-2xl">
-      Interfaz fácil de usar
-    </p>
-  </aside>
+  {
+    images.map((img, i) => (
+      <div
+        class="image-slot w-full pb-10 lg:absolute transition-all duration-[1200ms] ease-in-out"
+        data-index={i}
+        style={`transition-delay: ${positions[i].delay}ms`}
+      >
+        <img
+          src={img.src}
+          alt={img.alt}
+          class="w-full object-cover rounded-lg shadow-2xl"
+        />
+      </div>
+    ))
+  }
+</div>
 
-  <!-- accordion -->
-  <div class="relative flex flex-col gap-6 lg:w-1/2 lg:py-48">
-    {
-      images.map(({ src, alt, top, left, z, delay }) => (
-        <div
-          class={`scroll-reveal w-full pb-10 lg:absolute ${top} ${left} ${z}`}
-          style={`transition-delay: ${delay}ms`}
-        >
-          <img
-            src={src}
-            alt={alt}
-            class="w-full object-cover rounded-lg shadow-2xl"
-          />
-        </div>
-      ))
-    }
-  </div>
-</section>
+<script type="module">
+  // Inicializar clases
+  const wrapper = document.getElementById("diagonal-wrapper");
+  let positions = JSON.parse(
+    wrapper.getAttribute("data-positions") || null,
+  ) || [
+    { top: "-top-5", left: "left-0", z: "z-10", delay: 0 },
+    { top: "top-6", left: "left-10", z: "z-20", delay: 250 },
+    { top: "top-16", left: "left-20", z: "z-30", delay: 500 },
+  ];
+
+  const slots = wrapper.querySelectorAll(".image-slot");
+
+  function applyPositions() {
+    slots.forEach((slot) => {
+      const i = Number(slot.dataset.index);
+      const pos = positions[i];
+      slot.className = `image-slot w-full pb-10 lg:absolute ${pos.top} ${pos.left} ${pos.z} transition-all ease-in-out`;
+      slot.style.transitionDuration = "5000ms";
+      slot.style.transitionDelay = `${pos.delay}ms`;
+    });
+  }
+
+  // Rotar el array de posiciones
+  function rotatePositions() {
+    positions.push(positions.shift());
+    applyPositions();
+  }
+
+  // Arrancamos
+  applyPositions();
+  setInterval(rotatePositions, 6000);
+</script>
